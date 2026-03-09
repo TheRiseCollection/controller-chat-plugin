@@ -1,0 +1,51 @@
+{
+  "name": "controller-chat",
+  "version": "1.0.2",
+  "description": "Unbranded conversational search widget - keyword-only or optional AI (Llama 3)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles.css": "./dist/controller-chat.css"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.5.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^6.3.5"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "keywords": [
+    "search",
+    "chat",
+    "widget",
+    "conversational",
+    "llm",
+    "keyword-search"
+  ],
+  "author": "THE RISE COLLECTION (https://www.therisecollection.co)",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheRiseCollection/controller-chat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheRiseCollection/controller-chat/issues"
+  },
+  "homepage": "https://github.com/TheRiseCollection/controller-chat#readme"
+}
