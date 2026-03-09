@@ -1,6 +1,6 @@
 {
   "name": "controller-chat",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Unbranded conversational search widget - keyword-only or optional AI (Llama 3)",
   "type": "module",
   "main": "./dist/index.js",
@@ -47,5 +47,5 @@
   "bugs": {
     "url": "https://github.com/TheRiseCollection/controller-chat-plugin/issues"
   },
-  "homepage": "https://github.com/TheRiseCollection/controller-chat-plugin#readme"
+  "homepage": "https://www.therisecollection.co/portfolio/controller"
 }
