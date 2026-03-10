@@ -1,8 +1,17 @@
 # controller-chat
 
-Conversational search widget for React—unbranded, configurable, and works **with or without a backend**. Use keyword-only search on your local data, or plug in your own AI/LLM APIs.
+Conversational search widget for React—unbranded, configurable, and works **with or without a backend**. Use keyword-only search on your local data, or plug in your own AI/LLM (e.g. Llama 3 via Ollama) for natural-language answers.
 
 **No hardcoded backends, no cloud credentials.** You pass your API URLs (or omit them for keyword-only mode).
+
+[![npm](https://img.shields.io/npm/v/controller-chat.svg)](https://www.npmjs.com/package/controller-chat)
+[![downloads](https://img.shields.io/npm/dw/controller-chat)](https://www.npmjs.com/package/controller-chat)
+
+## Demo
+
+![controller-chat in action on redlightcam](https://raw.githubusercontent.com/TheRiseCollection/controller-chat-plugin/main/demo.png)
+
+*The controller search assistant on [redlightcam](https://redlightcam.co)—natural language search over events, showcase, and more.*
 
 ## Installation
 
@@ -51,6 +60,57 @@ Point the widget at your own API endpoints. Your backend handles RAG, LLM, or wh
 
 The widget sends requests to the URLs you provide. **You host and control the backend**—nothing is built into the package.
 
+---
+
+## Llama 3 & Lightweight LLMs
+
+controller-chat pairs well with **Ollama** and **Llama 3** for local, privacy-friendly AI search—no API keys, no cloud calls.
+
+### Why lightweight LLMs?
+
+| Benefit | Description |
+|--------|-------------|
+| **Privacy** | Data stays on your machine or your server |
+| **Cost** | No per-token API fees |
+| **Speed** | Smaller models (1B–8B) run on laptops and small VMs |
+| **Offline** | Works without internet once models are downloaded |
+
+### Installing Ollama & Llama 3
+
+1. **Install Ollama** (Mac, Windows, Linux): [ollama.com](https://ollama.com)
+
+   ```bash
+   # Linux
+   curl -fsSL https://ollama.com/install.sh | sh
+   ```
+
+2. **Pull Llama 3** (choose one for your hardware):
+
+   ```bash
+   ollama pull llama3.2:1b    # ~1.3GB - fastest, runs on almost anything
+   ollama pull llama3.2:3b   # ~2GB - good balance
+   ollama pull llama3.2      # ~2GB - 3B instruction-tuned (default)
+   ollama pull llama3       # ~4.7GB - 8B, more capable
+   ```
+
+3. **Run Ollama** (if not running as a service):
+
+   ```bash
+   ollama serve
+   ```
+
+4. **Point your backend** at `http://localhost:11434` (or your Ollama host). Your backend calls the Ollama API; controller-chat calls your backend.
+
+### Model size guide
+
+| Model | Size | Use case |
+|-------|------|----------|
+| `llama3.2:1b` | ~1.3GB | Embedded, Raspberry Pi, low-spec |
+| `llama3.2:3b` | ~2GB | Laptops, small VMs, fast responses |
+| `llama3` (8B) | ~4.7GB | Higher quality, needs 8GB+ RAM |
+
+---
+
 ## Peer Dependencies
 
 - `react` >= 17
@@ -93,6 +153,13 @@ Use relative paths like `/api/controller` and proxy them in your app (Vite, Next
 ```js
 window.dispatchEvent(new Event('controller-open'));
 ```
+
+## Examples & Resources
+
+- **Live demo**: [redlightcam.co](https://redlightcam.co) (Events & Showcase pages)
+- **Homepage**: [therisecollection.co/portfolio/controller](https://www.therisecollection.co/portfolio/controller)
+- **Ollama**: [ollama.com](https://ollama.com)
+- **Llama models**: [ollama.com/library/llama3.2](https://ollama.com/library/llama3.2)
 
 ## Credits
 
