@@ -9,9 +9,9 @@ Conversational search widget for React—unbranded, configurable, and works **wi
 
 ## Demo
 
-![controller-chat in action on redlightcam](https://raw.githubusercontent.com/TheRiseCollection/controller-chat-plugin/main/demo.png)
+![controller-chat on redlightcam—homepage and search assistant](https://raw.githubusercontent.com/TheRiseCollection/controller-chat-plugin/main/demo.png)
 
-*The controller search assistant on [redlightcam](https://redlightcam.co)—natural language search over events, showcase, and more.*
+*[redlightcam](https://redlightcam.co) homepage with the controller search assistant—natural language search over events, showcase, and more.*
 
 ## Installation
 
