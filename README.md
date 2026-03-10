@@ -185,6 +185,8 @@ window.dispatchEvent(new Event('controller-open'));
 - **Ollama**: [ollama.com](https://ollama.com)
 - **Llama models**: [ollama.com/library/llama3.2](https://ollama.com/library/llama3.2)
 
+If you found this useful, please ⭐ [the repo](https://github.com/TheRiseCollection/controller-chat-plugin) and share where you found it!
+
 ## Credits
 
 By [THE RISE COLLECTION](https://www.therisecollection.co)
