@@ -34,7 +34,7 @@ export function isAboutQuery(query, aboutPhrases = ['about us', 'what is this si
 
 /**
  * @param {Object} opts
- * @param {'events'|'showcase'|'products'} opts.context
+ * @param {string} opts.context - Any string. 'events' uses event-specific search; others use generic item search.
  * @param {string} opts.query
  * @param {Array} opts.data
  * @param {() => string} [opts.getAboutResponse] - Called when about intent detected
@@ -103,7 +103,14 @@ export function keywordSearchShowcase(items, query) {
   const words = q.split(/\s+/).filter(w => w.length > 2);
   if (words.length === 0) return items.slice(0, 5);
   const scored = items.map(item => {
-    const text = [item.name, item.description, (item.services || []).join(' '), (item.features || []).join(' ')].filter(Boolean).join(' ').toLowerCase();
+    const parts = [
+      item.name || item.title,
+      item.description,
+      (item.services || item.tags || item.categories || []).join(' '),
+      (item.features || []).join(' '),
+      item.category,
+    ];
+    const text = parts.filter(Boolean).join(' ').toLowerCase();
     let score = 0;
     for (const w of words) {
       if (text.includes(w)) score += 10;

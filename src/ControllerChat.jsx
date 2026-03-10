@@ -30,6 +30,10 @@ const DEFAULT_SUGGESTION_CHIPS = {
     { label: 'controller', query: 'controller' },
     { label: 'Keep On Trucking', query: 'keep on trucking' },
   ],
+  default: [
+    { label: 'Search', query: 'search' },
+    { label: 'Show all', query: 'show all' },
+  ],
 };
 
 const DEFAULT_WELCOME_MESSAGES = [
@@ -58,7 +62,7 @@ export default function ControllerChat({
   chatApiEnabled = true,
   getAboutResponse = null,
   aboutPhrases,
-  suggestionChips = DEFAULT_SUGGESTION_CHIPS[context] || DEFAULT_SUGGESTION_CHIPS.showcase,
+  suggestionChips = DEFAULT_SUGGESTION_CHIPS[context] || DEFAULT_SUGGESTION_CHIPS.default,
   welcomeMessages = DEFAULT_WELCOME_MESSAGES,
   placeholder = 'What are you looking for?',
   emptyStateMessage = "I couldn't complete that search. Try another query.",

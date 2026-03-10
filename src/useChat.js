@@ -28,7 +28,7 @@ async function fetchControllerApi(controllerApiUrl, { context, query, conversati
 
 /**
  * @param {Object} opts
- * @param {'events'|'showcase'|'products'} opts.context
+ * @param {string} opts.context - Any string; passed to your APIs. 'events' gets special client-side handling.
  * @param {Array} opts.data
  * @param {string|null} opts.controllerApiUrl - Optional. If null, no API fast path.
  * @param {string|null} opts.chatApiUrl - Optional. If null, no AI streaming.

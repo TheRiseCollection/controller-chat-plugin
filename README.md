@@ -125,11 +125,35 @@ controller-chat pairs well with **Ollama** and **Llama 3** for local, privacy-fr
 
 Use relative paths like `/api/controller` and proxy them in your app (Vite, Next.js, etc.) to your backend. The package never knows your infrastructure.
 
+## Context & extensibility
+
+`context` accepts **any string**—not just the built-in ones. Pass whatever fits your domain.
+
+| Context | Keyword-only behavior |
+|---------|------------------------|
+| `events` | Event-specific: filters past dates, deduplicates, "list all" support |
+| `showcase`, `products`, `software` | Pre-tuned suggestion chips; generic item search (title, name, description, tags) |
+| *Any other string* | Same as showcase: generic item search. Use `suggestionChips` to customize quick actions |
+
+**Custom contexts** (e.g. `articles`, `recipes`, `inventory`): your backend receives the context in every request. Use it to route queries, switch RAG collections, or tailor responses. The client fallback searches `data` using `title`, `name`, `description`, `tags`, `category`—format your items accordingly.
+
+```jsx
+<ControllerChat
+  context="recipes"
+  data={myRecipes}
+  suggestionChips={[
+    { label: 'Desserts', query: 'dessert recipes' },
+    { label: 'Quick meals', query: 'under 30 minutes' },
+  ]}
+  viewAllUrl="/recipes"
+/>
+```
+
 ## Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `context` | `'events' \| 'showcase' \| 'products' \| 'software'` | `'events'` | Search context |
+| `context` | `string` | `'events'` | Search context—any string. Built-in: `events`, `showcase`, `products`, `software`. Custom: pass your domain (e.g. `recipes`, `articles`). |
 | `data` | `Array` | `[]` | Items to search (events, products, etc.) |
 | `inline` | `boolean` | `false` | Inline mode (no floating button) |
 | `onResultClick` | `(result) => void` | - | Called when user clicks a result |
